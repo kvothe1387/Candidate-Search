@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
-
 import CandidateCard from '../components/CandidateCard';
 import type { Candidate } from '../interfaces/Candidate.interface';
 
@@ -21,44 +20,30 @@ const CandidateSearch = () => {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
 
   const searchForSpecificUser = async (user: string) => {
-    try {
-      const data: Candidate = await searchGithubUser(user);
-      setCurrentUser(data);
-    } catch (error) {
-      console.error('Error fetching specific user:', error);
-    }
+    const data: Candidate = await searchGithubUser(user);
+    setCurrentUser(data);
   };
 
   const searchForUsers = async () => {
-    try {
-      const data: Candidate[] = await searchGithub();
-      setResults(data);
-
-      if (data.length > 0) {
-        await searchForSpecificUser(data[currentIdx]?.login || '');
-      }
-    } catch (error) {
-      console.error('Error fectching users:', error);
-    }
+    const data: Candidate[] = await searchGithub();
+    setResults(data);
+    await searchForSpecificUser(data[currentIdx].login || '');
   };
+
 
   const makeDecision = async (isSelected: boolean) => {
     if (isSelected) {
-      try {
-        const SavedCandidates = localStorage.getItem('savedCandidates');
-        const parsedCandidates = savedCandidates ? JSON.parse(savedCandidates) : [];
-        parsedCandidates.push(currentUser);
-        localStorage.setItem('savedCandidates', JSON.stringify(parsedCandidates));
-      } catch (error) {
-        console.error('Error saving candidate:', error);
+      let parsedCandidates: Candidate[] = [];
+      const savedCandidates = localStorage.getItem('savedCandidates');
+      if (typeof savedCandidates === 'string') {
+        parsedCandidates = JSON.parse(savedCandidates);
       }
+      parsedCandidates.push(currentUser);
+      localStorage.setItem('savedCandidates', JSON.stringify(parsedCandidates));
     }
-
-    const nextIdx = currentIdx + 1;
-
-    if (nextIdx < results.length) {
-      setCurrentIdx(nextIdx);
-      await searchForSpecificUser(results[nextIdx]?.login || '');
+    if (currentIdx + 1 < results.length) {
+      setCurrentIdx(currentIdx + 1);
+      await searchForSpecificUser(results[currentIdx + 1].login || '');
     } else {
       setCurrentIdx(0);
       await searchForUsers();
@@ -67,6 +52,7 @@ const CandidateSearch = () => {
 
   useEffect(() => {
     searchForUsers();
+    searchForSpecificUser(currentUser.login || '');
   }, []);
 
   return (

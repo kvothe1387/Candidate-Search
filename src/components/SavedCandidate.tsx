@@ -19,8 +19,8 @@ const SavedCandidate = ({
               src={`${candidate.avatar_url}`}
               alt={`Profile of ${candidate.login}`}
               style={{
-                width: '60px',
-                borderRadius: '15px',
+                width: '70px',
+                borderRadius: '10px',
                 display: 'block',
                 margin: '0 auto',
               }}
@@ -41,7 +41,7 @@ const SavedCandidate = ({
           </td>
           <td>{candidate.company}</td>
           <td>
-            <div style={{ maxHeight: '90px', overflowY: 'scroll' }}>
+            <div style={{ maxHeight: '100px', overflowY: 'scroll' }}>
               {candidate.bio}
             </div>
           </td>
