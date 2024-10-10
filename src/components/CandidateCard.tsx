@@ -15,13 +15,13 @@ const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
             <img
               src={`${currentUser.avatar_url}`}
               alt={`Profile of ${currentUser.login}`}
-              style={{ width: '300px', borderRadius: '30px 30px 0 0 ' }}
+              style={{ width: '300px', borderRadius: '30px 30px 0 0' }}
             />
           ) : (
             <img
               src={'https://placehold.com/600x400'}
               alt={'Placeholder'}
-              style={{ width: '300px', borderRadius: '30px 30px 0 0 ' }}
+              style={{ width: '300px', borderRadius: '30px 30px 0 0' }}
             />
           )}
 
@@ -57,8 +57,7 @@ const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
               <p>Company: {currentUser.company}</p>
             ) : null}
 
-            {currentUser?.bio ?
-              <p>Bio: {currentUser.bio}</p> : null}
+            {currentUser?.bio ? <p>Bio: {currentUser.bio}</p> : null}
           </section>
 
           <section
