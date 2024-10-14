@@ -1,4 +1,4 @@
-import SavedCandidateList from "../components/SavedCandidateList";
+import SavedCandidateList from '../components/SavedCandidateList';
 
 const SavedCandidates = () => {
   return (
