@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import SavedCandidate from "./SavedCandidate";
-import type { Candidate } from "../interfaces/Candidate.interface";
+import { useEffect, useState } from 'react';
+import SavedCandidate from './SavedCandidate';
+import type { Candidate } from '../interfaces/Candidate.interface';
 
+// Map over the savedCandidates array in local storage and render a SavedCandidate card for each candidate.
 const SavedCandidateList = () => {
-  const [potentialCandidates, setPotentialCandidates] = useState<Candidate[]>([]);
+  const [potentialCandidates, setPotentialCandidates] = useState<Candidate[]>(
+    []
+  );
 
   useEffect(() => {
     const savedCandidates = localStorage.getItem('savedCandidates');
@@ -13,7 +16,6 @@ const SavedCandidateList = () => {
     }
     setPotentialCandidates(candidates);
   }, []);
-
   const rejectCandidate = (id: number) => {
     let parsedCandidates: Candidate[] = [];
     const savedCandidates = localStorage.getItem('savedCandidates');
@@ -26,7 +28,6 @@ const SavedCandidateList = () => {
     localStorage.setItem('savedCandidates', JSON.stringify(parsedCandidates));
     setPotentialCandidates(parsedCandidates);
   };
-
   return (
     <table className='table'>
       <thead>

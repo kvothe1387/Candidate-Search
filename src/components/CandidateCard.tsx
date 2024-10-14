@@ -1,5 +1,5 @@
-import type { Candidate } from "../interfaces/Candidate.interface";
-import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
+import type { Candidate } from '../interfaces/Candidate.interface';
+import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5';
 
 type CandidateCardProps = {
   currentUser: Candidate;
@@ -19,7 +19,7 @@ const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
             />
           ) : (
             <img
-              src={'https://placehold.com/600x400'}
+              src={'https://placehold.co/600x400'}
               alt={'Placeholder'}
               style={{ width: '300px', borderRadius: '30px 30px 0 0' }}
             />
@@ -34,32 +34,29 @@ const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
             }}
           >
             {currentUser?.html_url && currentUser?.login ? (
-              <a href={currentUser.html_url} target="_blank" rel="noreferrer">
-                <h2 style={{ padding: 0, margin: '-7px 0 0 0', color: 'white' }}>
+              <a href={currentUser.html_url} target='_blank' rel='noreferrer'>
+                <h2
+                  style={{ padding: 0, margin: '-7px 0 0 0', color: 'white' }}
+                >
                   {currentUser.name}
                   <em>({currentUser.login})</em>
                 </h2>
               </a>
-
             ) : null}
             {currentUser?.location ? (
               <p>Location: {currentUser.location}</p>
             ) : null}
-
             {currentUser?.email ? (
               <p>
-                Email: {''}
+                Email:{' '}
                 <a href={`mailto:${currentUser.email}`}>{currentUser.email}</a>
               </p>
             ) : null}
-
             {currentUser?.company ? (
               <p>Company: {currentUser.company}</p>
             ) : null}
-
             {currentUser?.bio ? <p>Bio: {currentUser.bio}</p> : null}
           </section>
-
           <section
             style={{
               display: 'flex',
@@ -87,7 +84,7 @@ const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
           </section>
         </>
       ) : (
-        <h2>Currently no candidates</h2>
+        <h2>No Candidates at this time</h2>
       )}
     </section>
   );

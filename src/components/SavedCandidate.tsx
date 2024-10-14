@@ -1,11 +1,11 @@
-import type { Candidate } from "../interfaces/Candidate.interface";
-import { IoRemoveCircle } from "react-icons/io5";
+import type { Candidate } from '../interfaces/Candidate.interface';
+import { IoRemoveCircle } from 'react-icons/io5';
 
+// To be rendered in the SavedCandidateList
 type SavedCandidateProps = {
   candidate: Candidate;
   rejectCandidate: (id: number) => void;
 };
-
 const SavedCandidate = ({
   candidate,
   rejectCandidate,
@@ -52,16 +52,17 @@ const SavedCandidate = ({
                 margin: '0 auto',
                 display: 'block',
                 cursor: 'pointer',
-                fontSize: '40px',
+                fontSize: '50px',
               }}
               onClick={() => rejectCandidate(candidate.id || 0)}
             />
           </td>
         </>
       ) : (
-        <h2>Curretnly No Candidates</h2>
+        <h2>No Candidates at this time</h2>
       )}
     </tr>
   );
 };
+
 export default SavedCandidate;
