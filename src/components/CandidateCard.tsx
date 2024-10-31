@@ -4,7 +4,7 @@ import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5';
 type CandidateCardProps = {
   currentUser: Candidate;
   makeDecision: (isSelected: boolean) => void;
-};
+}
 
 const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
   return (
@@ -13,7 +13,7 @@ const CandidateCard = ({ currentUser, makeDecision }: CandidateCardProps) => {
         <>
           {currentUser?.avatar_url ? (
             <img
-              src={`${currentUser.avatar_url}`}
+              src={`${currentUser?.avatar_url}`}
               alt={`Profile of ${currentUser.login}`}
               style={{ width: '300px', borderRadius: '30px 30px 0 0' }}
             />
