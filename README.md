@@ -1,17 +1,5 @@
 # Module 13 Challenge: Candidate Search
 
-## Your Task
-
-TypeScript can enhance the overall development experience with React, leading to more reliable, maintainable, and scalable applications.
-
-Your challenge is to complete a candidate search application that calls the GitHub API and renders data in the browser.
-
-The application’s API, retrieves data from the GitHub API, has already been created. It's your job to complete the front end using TypeScript, call the application's API, and then deploy the entire application to Render.
-
-* For more information on the data returned by the GitHub API, refer to the [GitHub Documentation on REST API Endpoints for Users](https://docs.github.com/en/rest/users/users).
-
-> **important** You'll need to create a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) to increase the API rate limit.
-
 ## User Story
 
 ```md

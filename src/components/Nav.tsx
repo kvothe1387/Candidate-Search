@@ -7,12 +7,12 @@ const Nav = () => {
     <ul className='nav nav-tabs'>
 
       <li className='nav-item'>
-        <Link to='/' className={currentPage === '/' ? 'nav-link active' : 'nav-link'} >Home</Link>
+        <Link to='/' className={currentPage === '/' ? 'nav-link active' : 'nav-link'}> Home</Link>
       </li>
 
       <li className='nav-item'>
         <Link to='/SavedCandidates' className={currentPage === '/SavedCandidates' ? 'nav-link active' : 'nav-link'}
-        >Potential Candidates</Link>
+        > Potential Candidates</Link>
       </li>
 
     </ul>
