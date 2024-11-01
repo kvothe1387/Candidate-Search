@@ -5,6 +5,7 @@ A web application that helps employers streamline their candidate search process
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
+- [Deployed Site](#deployed-site)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
@@ -35,6 +36,9 @@ This application provides employers with an efficient way to review potential jo
 - Comprehensive list view of all saved candidates
 - Detailed information display for each saved candidate
 - Clear indication when no candidates have been saved
+
+## Deployed Site
+- https://candidate-search-191b.onrender.com/
 
 ## Installation
 
